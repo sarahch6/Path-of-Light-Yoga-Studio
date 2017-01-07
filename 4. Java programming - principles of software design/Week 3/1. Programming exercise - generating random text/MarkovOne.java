@@ -30,20 +30,21 @@ public class MarkovOne {
 			return "";
 		}
 		StringBuilder sb = new StringBuilder();
-		// WHY THE ONES???
+		// Generate a random index between 0 and size of myText minus 1 (for MarkovOne)
 		int index = myRandom.nextInt(myText.length() - 1);
+		// Retrieve a substring that is 
 		String key = myText.substring(index, index + 1);
 		sb.append(key);
 		// ABOVE THIS DON'T UNDERSTAND YET
 		for(int k=0; k < numChars; k++){
 		    // Find all characters that follow the current character
-		    ArrayList<Character> follows = getFollows(key);
+		    ArrayList<String> follows = getFollows(key);
 		    // Randomly pick one of them as the successor
 		    index = myRandom.nextInt(follows.size());
-		    char successor = follows.get(index);
+		    String successor = follows.get(index);
 			sb.append(successor);
 			// Update key to successor 
-			key = Character.toString(successor);
+			key = successor;
 		}
 		return sb.toString();
 	}
@@ -53,9 +54,8 @@ public class MarkovOne {
 	 * follow key and puts all these characters into an ArrayList.
 	 * @returns the ArrayList
 	 */
-	public ArrayList<Character> getFollows(String key) {
-	    // NOTE: CHANGE CHARACTER TYPE TO STRING TYPE
-	    ArrayList<Character> follows = new ArrayList<Character>();
+	public ArrayList<String> getFollows(String key) {
+	    ArrayList<String> follows = new ArrayList<String>();
 	    // Loop through myText until no more characters are found
 	    int pos = 0;
 	    while (true) {
@@ -67,7 +67,7 @@ public class MarkovOne {
 	            break;
 	        }
 	        // Add to ArrayList the character immediately after key
-	        char successor = myText.charAt(indexOfSuccessor);
+	        String successor = myText.substring(indexOfSuccessor, indexOfSuccessor + 1);
 	        follows.add(successor);
 	        // Update search position in myText
 	        pos = index + 1;
