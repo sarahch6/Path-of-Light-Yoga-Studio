@@ -1,0 +1,28 @@
+import java.util.*;
+import edu.duke.*;
+/**
+ * Write a description of Tester here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Tester {
+    public void testGetFollows() {
+        MarkovOne markov = new MarkovOne();
+        markov.setTraining("this is a test yes this is a test.");
+        ArrayList<Character> follows = markov.getFollows("t.");
+        System.out.println(follows);
+    }
+    
+    public void testGetFollowsWithFile() {
+        // Create a MarkovOne object
+        MarkovOne markov = new MarkovOne();
+        // Set training text to user-chosen file
+        FileResource fr = new FileResource();
+        String frStr = fr.asString().replace('\n', ' ');
+        markov.setTraining(frStr);
+        // Call getFollows
+        ArrayList<Character> follows = markov.getFollows("t");
+        System.out.println(follows.size());
+    }
+}
