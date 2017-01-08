@@ -8,9 +8,10 @@ import edu.duke.*;
  */
 public class Tester {
     public void testGetFollows() {
-        MarkovOne markov = new MarkovOne();
+        // MarkovOne markov = new MarkovOne();
+        MarkovFour markov = new MarkovFour();
         markov.setTraining("this is a test yes this is a test.");
-        ArrayList<Character> follows = markov.getFollows("t.");
+        ArrayList<String> follows = markov.getFollows(" is ");
         System.out.println(follows);
     }
     
@@ -22,7 +23,7 @@ public class Tester {
         String frStr = fr.asString().replace('\n', ' ');
         markov.setTraining(frStr);
         // Call getFollows
-        ArrayList<Character> follows = markov.getFollows("t");
+        ArrayList<String> follows = markov.getFollows("t");
         System.out.println(follows.size());
     }
 }

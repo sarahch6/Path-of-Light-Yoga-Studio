@@ -39,6 +39,37 @@ public class MarkovRunner {
 		}
 	}
 	
+	public void runMarkovFour() {
+	    FileResource fr = new FileResource();
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		MarkovFour markov = new MarkovFour();
+		markov.setTraining(st);
+		// Set the seed of the random number generator
+		markov.setRandom(25); 
+		// Print out three random texts
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
+	}
+	
+	public void runMarkovModel() {
+	    FileResource fr = new FileResource();
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		// Create a new MarkovModel object, initialized with a keyLength of 6
+		MarkovModel markov = new MarkovModel(6);
+		markov.setTraining(st);
+		// Set the seed of the random number generator
+		markov.setRandom(38); 
+		// Print out three random texts
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
+	}
+	
 	private void printOut(String s){
 		String[] words = s.split("\\s+");
 		int psize = 0;

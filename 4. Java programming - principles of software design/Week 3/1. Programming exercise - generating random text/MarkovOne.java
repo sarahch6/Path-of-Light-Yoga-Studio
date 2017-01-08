@@ -30,14 +30,15 @@ public class MarkovOne {
 			return "";
 		}
 		StringBuilder sb = new StringBuilder();
-		// Generate a random index (from valid indexes, which are all those indexes that have 
+		// Generate a random index from valid indexes, which are all those indexes that have 
 		// following characters. The last index has no following character, therefore
 		// myText.length() - 1 is used
 		int index = myRandom.nextInt(myText.length() - 1);
 		// Assign to key the one-character string at the random index
 		String key = myText.substring(index, index + 1);
 		sb.append(key);
-		for(int k=0; k < numChars; k++){
+		// NOTE: Generate numChars minus one cuz that one is set before the loop
+		for(int k=0; k < numChars - 1; k++){
 		    // Find all characters that follow the current character
 		    ArrayList<String> follows = getFollows(key);
 		    // Break if no characters were found
