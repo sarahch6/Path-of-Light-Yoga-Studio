@@ -5,7 +5,7 @@ import java.util.*;
  * @author Brienna Herold
  * @version Jan. 7, 2017
  */
-public class MarkovFour {
+public class MarkovFour implements IMarkovModel {
     private String myText;
     private Random myRandom;
     

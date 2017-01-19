@@ -5,7 +5,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MarkovModel {
+public class MarkovModel implements IMarkovModel {
     private int keyLength;
     private String myText;
     private Random myRandom;
