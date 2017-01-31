@@ -16,10 +16,6 @@ public class MarkovModel extends AbstractMarkovModel {
         myRandom = new Random();
     }
     
-    public void setRandom(int seed){
-        myRandom = new Random(seed);
-    }
-    
     public void setTraining(String s){
         myText = s.trim();
     }

@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=AbstractMarkovModel()
-comment1.params=s
-comment1.target=void\ setTraining(java.lang.String)
-comment2.params=numChars
-comment2.target=java.lang.String\ getRandomText(int)
-comment3.params=key
-comment3.target=java.util.ArrayList\ getFollows(java.lang.String)
-comment3.text=\n\ Finds\ all\ the\ characters\ from\ the\ private\ variable\ myText\ in\ MarkovOne\ that\ \n\ follow\ key\ and\ puts\ all\ these\ characters\ into\ an\ ArrayList.\n\ @returns\ the\ ArrayList\n
-numComments=4
+comment1.params=seed
+comment1.target=void\ setRandom(int)
+comment2.params=s
+comment2.target=void\ setTraining(java.lang.String)
+comment3.params=numChars
+comment3.target=java.lang.String\ getRandomText(int)
+comment4.params=key
+comment4.target=java.util.ArrayList\ getFollows(java.lang.String)
+comment4.text=\n\ Finds\ all\ the\ characters\ from\ the\ private\ variable\ myText\ in\ MarkovOne\ that\ \n\ follow\ key\ and\ puts\ all\ these\ characters\ into\ an\ ArrayList.\n\ @returns\ the\ ArrayList\n
+numComments=5
