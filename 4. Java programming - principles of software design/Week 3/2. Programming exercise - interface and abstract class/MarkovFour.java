@@ -5,10 +5,7 @@ import java.util.*;
  * @author Brienna Herold
  * @version Jan. 7, 2017
  */
-public class MarkovFour implements IMarkovModel {
-    private String myText;
-    private Random myRandom;
-    
+public class MarkovFour extends AbstractMarkovModel {
     public MarkovFour() {
         myRandom = new Random();
     }
@@ -53,31 +50,5 @@ public class MarkovFour implements IMarkovModel {
             key = key.substring(key.length() - 3) + successor;
         }
         return sb.toString();
-    }
-    
-    /**
-     * Finds all the characters from the private variable myText in MarkovOne that 
-     * follow key and puts all these characters into an ArrayList.
-     * @returns the ArrayList
-     */
-    public ArrayList<String> getFollows(String key) {
-        ArrayList<String> follows = new ArrayList<String>();
-        // Loop through myText until no more characters are found
-        int pos = 0;
-        while (true) {
-            // Find indexes of key and succeeding character
-            int index = myText.indexOf(key, pos);
-            int indexOfSuccessor = index + key.length();
-            // Break if key isn't found or if successor index is greater than last index
-            if (index == -1 || indexOfSuccessor >= myText.length()) {
-                break;
-            }
-            // Add to ArrayList the character immediately after key
-            String successor = myText.substring(indexOfSuccessor, indexOfSuccessor + 1);
-            follows.add(successor);
-            // Update search position in myText
-            pos = index + 1;
-        }
-        return follows;
     }
 }
