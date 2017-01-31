@@ -11,9 +11,15 @@ import java.util.*;
 public abstract class AbstractMarkovModel implements IMarkovModel {
     protected String myText;
     protected Random myRandom;
+    protected int order;
     
     public AbstractMarkovModel() {
         myRandom = new Random();
+    }
+    
+    @Override
+    public String toString() {
+        return "MarkovModel of order " + order;
     }
     
     public void setRandom(int seed){

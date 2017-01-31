@@ -14,6 +14,7 @@ public class MarkovModel extends AbstractMarkovModel {
     public MarkovModel(int num) {
         keyLength = num;
         myRandom = new Random();
+        order = num;
     }
     
     public void setTraining(String s){
