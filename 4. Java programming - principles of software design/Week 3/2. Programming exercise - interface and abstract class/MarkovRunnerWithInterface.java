@@ -22,7 +22,7 @@ public class MarkovRunnerWithInterface {
         }
         // Record time just after running model, calculate run time
         long endTime = System.nanoTime();
-        long timeElapsed = (endTime - startTime) / 1000000000;
+        long timeElapsed = (endTime - startTime);
         System.out.println("Seconds the run took: " + timeElapsed);
     }
     
@@ -48,17 +48,15 @@ public class MarkovRunnerWithInterface {
     }
     
     public void testHashMap() {
-        String text = "yes-this-is-a-thin-pretty-pink-thistle";
+        //String st = "yes-this-is-a-thin-pretty-pink-thistle";
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        
         int size = 50;
-        int seed = 42;
-        EfficientMarkovModel emTwo = new EfficientMarkovModel(2);
-
-        emTwo.setTraining(text);
-        emTwo.setRandom(seed);
-        System.out.println("running with " + emTwo);
-        for(int k=0; k < 3; k++){
-            emTwo.printHashMapInfo();
-        }
+        int seed = 615;
+        EfficientMarkovModel emFive = new EfficientMarkovModel(5);
+        runModel(emFive, st, size, seed);
     }
     
     public void compareMethods() {

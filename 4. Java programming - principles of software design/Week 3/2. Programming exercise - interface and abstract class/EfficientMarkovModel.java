@@ -26,6 +26,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     public void setTraining(String s){
         myText = s.trim();
         buildMap();
+        printHashMapInfo();
     }
     
     /**
@@ -76,6 +77,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
             // Add to HashMap the character that follows current substring, if there is one
             if (subEnd < myText.length()) {
                 String follower = myText.substring(subEnd, subEnd + 1);
+                //System.out.println(sub + ": " + follower);
                 ArrayList<String> followers = map.get(sub);
                 followers.add(follower);
                 map.put(sub, followers);
@@ -86,12 +88,9 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     /**
      * Tests HashMap to make sure it is built correctly.
      */
-    public void printHashMapInfo() {
-        // Build HashMap
-        buildMap();
-        
+    public void printHashMapInfo() {        
         // Print the HashMap (all the keys and their corresponding values)
-        System.out.println("Hashmap: " + "\n" + map);
+        // System.out.println("Hashmap: " + "\n" + map);
         
         // Print the number of keys in the HashMap
         System.out.println("Number of keys: " + map.size());
