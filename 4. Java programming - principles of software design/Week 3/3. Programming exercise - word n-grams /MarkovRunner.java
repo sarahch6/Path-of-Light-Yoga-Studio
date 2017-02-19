@@ -33,7 +33,7 @@ public class MarkovRunner {
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne(); 
-        runModel(markovWord, st, 200); 
+        runModel(markovWord, st, 120, 175); 
     } 
 
     private void printOut(String s){
@@ -50,5 +50,11 @@ public class MarkovRunner {
         } 
         System.out.println("\n----------------------------------");
     } 
+    
+    public void testGetFollows() {
+        String st = "this is just a test yes this is a simple test";
+        MarkovWordOne markovWord = new MarkovWordOne();
+        runModel(markovWord, st, 13);
+    }
 
 }
