@@ -57,13 +57,13 @@ public class MarkovWordOne implements IMarkovModel {
         while (true) {
             index = indexOf(myText, key, index);
             
-            if (index == -1 || index + 1 >= myText.length) {
+            if (index == -1 || (index + 1) >= myText.length) {
                 break;
             }
 
-            if (!follows.contains(myText[index + 1])) {
-                follows.add(myText[index + 1]);
-            }
+
+            follows.add(myText[index + 1]);
+
             
             index++;
         }
