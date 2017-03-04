@@ -37,12 +37,25 @@ public class WordGram {
         // Convert o into a WordGram if it isn't already of that type
         WordGram other = (WordGram) o;
         
-        // Test equals by using toString, as a shortcut
+        /*
+        // (shortcut?) Test with toString 
         String currStr = myWords.toString();
         String otherStr = other.toString();
         if (!currStr.equals(otherStr)) {
             return false;
         }
+        return true;
+        */
+        
+        if (this.length() != other.length()) {
+            return false;
+        }
+        for (int i = 0; i < myWords.length; i++) {
+            if (!myWords[i].equals(other.wordAt(i))) {
+                return false;
+            }
+        }
+        
         return true;
     }
 
