@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class WordGram {
     private String[] myWords;
@@ -16,29 +17,40 @@ public class WordGram {
     }
 
     public int length(){
-        // TODO: Complete this method
-        return 0;
+        return myWords.length;
     }
-
+    
+    /**
+     * Prints out a WordGram, showing all the words in the WordGram on one line separated by spaces.
+     */
     public String toString(){
         String ret = "";
-        // TODO: Complete this method
-
+        
+        for (int i = 0; i < myWords.length; i++) {
+            ret += myWords[i] + " ";
+        }
+        
         return ret.trim();
     }
 
     public boolean equals(Object o) {
+        // Convert o into a WordGram if it isn't already of that type
         WordGram other = (WordGram) o;
-        // TODO: Complete this method
+        
+        // Test equals by using toString, as a shortcut
+        String currStr = myWords.toString();
+        String otherStr = other.toString();
+        if (!currStr.equals(otherStr)) {
+            return false;
+        }
         return true;
-
     }
 
-    public WordGram shiftAdd(String word) {	
-        WordGram out = new WordGram(myWords, 0, myWords.length);
-        // shift all words one towards 0 and add word at the end. 
-        // you lose the first word
-        // TODO: Complete this method
+    public WordGram shiftAdd(String word) { 
+        ArrayList<String> temp = new ArrayList<String>(Arrays.asList(myWords));
+        temp.remove(0);
+        temp.add(word);
+        WordGram out = new WordGram(temp.toArray(new String[temp.size()]), 0, temp.size());
         return out;
     }
 
