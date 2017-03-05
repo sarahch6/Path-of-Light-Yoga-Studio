@@ -10,7 +10,7 @@ public class EfficientMarkovWord implements IMarkovModel {
     private String[] myText;
     private Random myRandom;
     private int myOrder;
-    private HashMap<WordGram, ArrayList<String>> map;
+    private HashMap<Integer, ArrayList<String>> map;
     
     public EfficientMarkovWord(int order) {
         myRandom = new Random();
@@ -46,7 +46,7 @@ public class EfficientMarkovWord implements IMarkovModel {
      * instance of the WordGram parameter somewhere in the training text
      */
     private ArrayList<String> getFollows(WordGram kGram) {
-        return map.get(kGram);
+        return map.get(kGram.toString().hashCode());
     }
     
     /**
@@ -82,21 +82,22 @@ public class EfficientMarkovWord implements IMarkovModel {
     }
     
     private void buildHashMap() {  
-        map = new HashMap<WordGram, ArrayList<String>>();
+        map = new HashMap<Integer, ArrayList<String>>();
         // Loop over training text, keeping in mind size of WordGram
         for (int i = 0; i <= myText.length - myOrder; i++) {
             // Extract WordGram in increments
             WordGram word = new WordGram(myText, i, myOrder);
+            int code = word.hashCode();
             // If that WordGram is not in the HashMap yet, then it should be put in mapped to an empty ArrayList
-            if (!map.containsKey(word)) {
-                map.put(word, new ArrayList<String>());
+            if (!map.containsKey(code)) {
+                map.put(code, new ArrayList<String>());
             }
             // Add following word to the WordGram's ArrayList in the map, if there is one
             if (i + myOrder < myText.length) {
                 String follower = myText[i + myOrder];
-                ArrayList<String> follows = map.get(word);
+                ArrayList<String> follows = map.get(code);
                 follows.add(follower);
-                map.put(word, follows);
+                map.put(code, follows);
             }
         }
     }
@@ -108,18 +109,18 @@ public class EfficientMarkovWord implements IMarkovModel {
         System.out.println(map.size());
         // Print the size of the largest value in the HashMap
         int largest = 0; 
-        for (WordGram word : map.keySet()) {
-            int current = map.get(word).size();
+        for (int code : map.keySet()) {
+            int current = map.get(code).size();
             if (current > largest) {
                 largest = current;
             }
         }
         System.out.println("Size of largest value in the HashMap: " + largest);
         // Print the keys that have the maximum size value
-        for (WordGram word : map.keySet()) {
-            if (map.get(word).size() == largest) {
+        for (int code : map.keySet()) {
+            if (map.get(code).size() == largest) {
                 System.out.println("The keys that have the maximum size value and their follow words: ");
-                System.out.println(word + " .... " + map.get(word));
+                System.out.println(code + " .... " + map.get(code));
             }
         }
     }
