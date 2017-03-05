@@ -52,7 +52,7 @@ public class MarkovWord implements IMarkovModel {
                 break;
             }
             follows.add(myText[index + myOrder]);
-            index += index + myOrder;
+            index = index + myOrder;
         }
         
         return follows;
