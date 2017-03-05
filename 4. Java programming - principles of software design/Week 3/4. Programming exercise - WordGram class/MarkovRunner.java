@@ -33,7 +33,9 @@ public class MarkovRunner {
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         //MarkovWordOne markovWord = new MarkovWordOne(); 
-        //runModel(markovWord, st, 200); 
+        //runModel(markovWord, st, 200);
+        MarkovWord m3 = new MarkovWord(3);
+        runModel(m3, st, 20, 643);
     } 
 
     private void printOut(String s){
