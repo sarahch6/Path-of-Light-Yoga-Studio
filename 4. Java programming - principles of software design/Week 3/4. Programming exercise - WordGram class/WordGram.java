@@ -66,5 +66,11 @@ public class WordGram {
         WordGram out = new WordGram(temp.toArray(new String[temp.size()]), 0, temp.size());
         return out;
     }
-
+    
+    /**
+     *  Returns an integer that is a hash code that represents the WordGram.
+     */
+    public int hashCode() {
+        return this.toString().hashCode();
+    }
 }
