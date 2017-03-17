@@ -1,0 +1,28 @@
+body {
+  font-family: arial;
+}
+
+h1 {
+  font-size: 30px;
+  color: gray;
+}
+
+div {
+  width: 200px;
+  height: 50px;
+  border: 1px solid gray;
+  margin: 10px;
+  font-size: 10px;
+}
+
+#d1 {
+  background-color: blue;
+}
+
+#d2 {
+  background-color: red;
+}
+
+p {
+  margin: 20px;
+}

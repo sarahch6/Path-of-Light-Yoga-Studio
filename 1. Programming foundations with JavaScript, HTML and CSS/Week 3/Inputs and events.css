@@ -1,0 +1,10 @@
+h1 {
+  font-size: 30px;
+  color: gray;
+}
+
+canvas {
+  height: auto;
+  width: 400px;
+  border: 1px solid black;
+}

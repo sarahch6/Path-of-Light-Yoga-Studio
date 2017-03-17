@@ -1,0 +1,13 @@
+body {
+  font-family: arial;
+}
+
+h1 {
+  font-size: 30px;
+  color: gray;
+}
+
+canvas {
+  width: 200px;
+  height: 200px;
+}
