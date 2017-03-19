@@ -1,0 +1,17 @@
+<h1>Green screen online</h1>
+
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+
+<p>
+Foreground: <input type="file" accept="image/*" id="fgFile" multiple="false" onchange="loadFgImage()">
+</p>
+<p>
+Background: <input type="file" accept="image/*" id="bgFile" multiple="false" onchange="loadBgImage()">
+</p>
+<p>
+<input type="button" id="createComp" onclick="doGreenScreen()" value="Create Composite">
+<input type="button" id="clear" onclick="clearCanvas()" value="Clear Canvases">
+</p>
+
+<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>

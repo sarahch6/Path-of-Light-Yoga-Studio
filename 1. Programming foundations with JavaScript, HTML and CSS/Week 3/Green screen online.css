@@ -1,0 +1,19 @@
+body {
+  margin: 20px;
+}
+
+h1 {
+  color: gray;
+  font-family: arial;
+  font-size: 20px;
+}
+
+canvas {
+  border: 1px solid gray;
+  width: 200px;
+  height: auto;
+}
+
+input {
+  font-size: 15px;
+}
