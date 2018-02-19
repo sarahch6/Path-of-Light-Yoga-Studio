@@ -52,7 +52,7 @@ var devil = new SimpleImage("duke_blue_devil.png");
 
 for (var pix of devil.values()) {
     // If pixel is less than total of white 
-    if (pix.getRed()+pix.getGreen()+pixel.getBlue()<765) {
+    if (pix.getRed()+pix.getGreen()+pix.getBlue()<765) {
         // Change to yellow
         pix.setRed(255);
         pix.setGreen(255);
