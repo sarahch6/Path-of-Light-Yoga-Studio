@@ -1,0 +1,31 @@
+body {
+    background-color: #F5F5F5;
+    color:3F2860;
+    font-family: sans-serif;
+}
+header {
+    background-color: #9BC1C2;
+    text-align: center;
+}
+h1 {
+    line-height: 200%;
+}
+nav {
+    text-align: center;
+    font-weight: 400;
+}
+nav a{
+    text-decoration: none;
+}
+.studio {
+    font-style: italic;
+}
+footer{
+    background-color:#9BC1C2;
+    font-size: x-small;
+    font-style:italic;
+    text-align: center;
+}
+#wrapper { width: 80%;
+           margin-right: auto;
+           margin-left: auto; }
